@@ -40,6 +40,17 @@ void setup() {
 }
 
 void loop() {
+  if(digitalRead(braj_the_sensor.distanceRead)>=10)
+  {
+    digitalWrite(servoPin, 180);
+    delay(50);
+  }else
+ 
+ {
+ 
+ digitalWrite(servoPin,0);
+
+ }
   Serial.println(braj_the_sensor.distanceRead());
   int val = analogRead(potpin);
   val = map(val,0,1023,0,180);
