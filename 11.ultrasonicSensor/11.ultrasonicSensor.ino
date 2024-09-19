@@ -31,7 +31,7 @@ Servo myservo;
 Ultrasonic braj_the_sensor(5);
 
 unsigned static int servoPin = 7;
-unsigned static int potpin = A2;
+//unsigned static int ledPin = A2;
 
 
 void setup() {
@@ -40,19 +40,15 @@ void setup() {
 }
 
 void loop() {
-  if(digitalRead(braj_the_sensor.distanceRead)>=10)
-  {
-    digitalWrite(servoPin, 180);
-    delay(50);
-  }else
- 
- {
- 
- digitalWrite(servoPin,0);
-
- }
+  unsigned long currentMillis = millis();
+   
+   if(digitalRead(braj_the_sensor.distanceRead())>=10)
+   {
+    digitalWrite(ledPin, true);
+    //delay(50);
+   }
   Serial.println(braj_the_sensor.distanceRead());
-  int val = analogRead(potpin);
+  int val = analogRead(ledPin);
   val = map(val,0,1023,0,180);
   myservo.write(val);
 }
