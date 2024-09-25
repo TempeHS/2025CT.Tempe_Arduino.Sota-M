@@ -31,7 +31,7 @@ Servo myservo;
 Ultrasonic braj_the_sensor(5);
 
 unsigned static int servoPin = 7;
-//unsigned static int ledPin = A2;
+unsigned static int ledPin = A2;
 
 
 void setup() {
